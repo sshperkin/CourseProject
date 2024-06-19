@@ -10,4 +10,4 @@ async def pagination_handler(call:CallbackQuery, callback_data: fabrics.Paginati
     page = page_num -1 if page_num > 0 else 0
 
     if callback_data.action == "next":
-        page = page_num + 1 if page_num < (len(tours) - 1) else page_num
+        page = page_num + 1 if page_num < (len() - 1) else page_num
