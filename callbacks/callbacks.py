@@ -2,7 +2,7 @@ from aiogram import F, Router, Bot
 from aiogram.types import CallbackQuery, Message, FSInputFile
 from aiogram.fsm.context import FSMContext
 from utils.states import Form
-from keyboards import inline
+from keyboards import inline, fabrics
 router = Router()
 
 

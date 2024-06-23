@@ -5,3 +5,4 @@ class Form(StatesGroup):
     country = State()
     dates = State()
     people_num = State()
+    city = State()

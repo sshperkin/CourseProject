@@ -13,6 +13,7 @@ def paginator(page: int = 0):
     builder.row(
         InlineKeyboardButton(text="◀️", callback_data=Pagination(action="prev", page=page).pack()),
         InlineKeyboardButton(text="▶️", callback_data=Pagination(action="next", page=page).pack()),
+        InlineKeyboardButton(text="Забронировать!", callback_data="checkout"),
         width=2
     )
     return builder.as_markup()

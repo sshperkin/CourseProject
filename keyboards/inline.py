@@ -39,3 +39,11 @@ back_to_main = InlineKeyboardMarkup(
         ]
     ]
 )
+
+select_tour = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Забронировать!", callback_data="select")
+        ]
+    ]
+)

@@ -1,13 +1,18 @@
 from aiogram import Router, F
-from aiogram.types import CallbackQuery
-
+from aiogram.fsm.context import FSMContext
+from aiogram.types import CallbackQuery, InlineKeyboardButton
+from contextlib import suppress
+from aiogram.exceptions import TelegramBadRequest
 from keyboards import fabrics
+from utils.states import Form
 router = Router()
 
-@router.callback_query(fabrics.Pagination.filter(F.action.in_(["perv","next"])))
-async def pagination_handler(call:CallbackQuery, callback_data: fabrics.Pagination):
-    page_num = int(callback_data.page)
-    page = page_num -1 if page_num > 0 else 0
 
-    if callback_data.action == "next":
-        page = page_num + 1 if page_num < (len() - 1) else page_num
+def pagination_buttons(current_page, total_pages):
+    buttons = []
+    if current_page > 1:
+        buttons.append(InlineKeyboardButton('◀️ Назад', callback_data='prev'))
+    if current_page < total_pages:
+        buttons.append(InlineKeyboardButton('Вперед ▶️', callback_data='next'))
+    return buttons
+
